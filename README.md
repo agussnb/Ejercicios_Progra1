@@ -1,4 +1,5 @@
-# Repositorio del paquete "Package_input"
-## Actividad de la materia Programacion 1 de la carrera Tecnicatura en programacion UTN
+# Repositorio con todos los ejercicios de Programacion 1 UTN
+
+
 ### Alumno: Agustin Barrero
 ### Comision: 213
