@@ -1,2 +1,2 @@
 #Desarrollar las funciones en una biblioteca.
-#Modulo llamado biblioteca_stats
+#Modulo llamado biblioteca_gondola

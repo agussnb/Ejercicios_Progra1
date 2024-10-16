@@ -1,12 +1,3 @@
-# Crear una función para cada opción de menú
-#Funcion para 1-Importar listas
-#Funcion para 2-Listar los datos de los usuarios de México
-#Funcion para 3-Listar los nombre, mail y teléfono de los usuarios de Brasil
-#Funcion para 4-Listar los datos del/los usuario/s más joven/es
-#Funcion para 5-Obtener un promedio de edad de los usuarios
-#Funcion para 6-De los usuarios de Brasil, listar los datos del usuario de mayor edad
-#Funcion para 7-Listar los datos de los usuarios de México y Brasil cuyo código postal sea mayor a 8000
-#Funcion para 8-Listar nombre, mail y teléfono de los usuarios italianos mayores a 40 años.
 from listas_personas import *
 def importar_listas():
     from listas_personas import Nombres,Edades,Paises,CodigoPostal,Mails,Telefonos
@@ -97,4 +88,3 @@ def listar_ita_users_mayores_cuarenta():
         print(f"Nombre: {usuario['nombre']}, "
               f"Email: {usuario['mail']}, "
               f"Teléfono: {usuario['telefono']}")
-

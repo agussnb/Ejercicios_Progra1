@@ -1,0 +1,6 @@
+Nombres=["Ana","Luis","Juan","Sol","Roberto","Sonia","Ulises","Sofia","Maria","Pedro","Antonio", "Eugenia", "Soledad", "Mario", "Mariela"]
+Edades=[23,45,34,23,46,23,45,67,37,68,25,55,45,27,43]
+Paises=['Argentina','Mexico','Brasil','Italia','Rusia','Peru','España','Turquia','Ecuador','Estados Unidos','Japon','China','Taiwan','Filipinas','Portugal']
+CodigoPostal=[1832,2912,5032,8321,3215,6840,3112,1239,2013,5932,3291,1002,9532,2384,2910]
+Mails=['ana@gmail.com','luis@gmail.com','juan@gmail.com','sol@gmail.com','roberto@gmail.com','sonia@gmail.com','ulises@gmail.com','sofia@gmail.com','maria@gmail.com','pedro@gmail.com','antonio@gmail.com','eugenia@gmail.com','soledad@gmail.com','mario@gmail.com','mariela@gmail.com']
+Telefonos=[1134784598,1185231066,1144238921,1199218423,1155829926,1158863152,1155339965,1123299531,1102359864,1143869932,1112325964,1192837432,112459632,112322323,1194203234]
