@@ -36,8 +36,9 @@ def obtener_promedio_edad(estudiantes: list) -> float:
         promedio_edad = suma_edades / len(estudiantes)  
     else:
         promedio_edad = 0  
-    print(f"Promedio de edad de los estudiantes: {promedio_edad:.2f}")
     return promedio_edad
+def mostrar_promedio(promedio_edad):
+    print(f"Promedio de edad de los estudiantes: {promedio_edad:.2f}") 
 def info_mayor_promedio_notas(estudiantes: list) -> None:
     mayor_promedio = 0
     estudiante_mayor = None

@@ -42,7 +42,8 @@ def ejecutar_menu():
         elif opcion == "3":
             info_ing_informatica_estudiantes(estudiantes)
         elif opcion == "4":
-            obtener_promedio_edad(estudiantes)
+            promedio_edad = obtener_promedio_edad(estudiantes) 
+            mostrar_promedio(promedio_edad)  
         elif opcion == "5":
             info_mayor_promedio_notas(estudiantes)
         elif opcion == "6":
