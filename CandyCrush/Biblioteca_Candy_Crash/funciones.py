@@ -1,13 +1,10 @@
 import random
 import csv
 
-# def generar_tablero():
-#     tablero = [{'piezas': []} for _ in range(4)]
-#     generar_numeros(tablero)
-#     return tablero
-#To do agregar bloques try except para validaciones de ingreso de datos (filas, columnas, otros)   
-
 def generar_numeros(tablero):
+    """
+    Funcion que se encargar de rellenar el tablero con numeros aleatorios desde 1 a 3
+    """
     for elemento in tablero:
         while len(elemento['piezas']) < 7:
             numero = random.randint(1, 3)                                       
@@ -15,8 +12,10 @@ def generar_numeros(tablero):
         print(elemento)
     return tablero
     
-
 def pedir_coordenadas() -> list:
+    """
+    Funcion que le solicita al usuario una fila y una columna
+    """
     fila = int(input("Eliga una fila: [0-3] ")) 
     while fila < 0 or fila > 3:
         fila = int(input("La fila debe estar entre 0 y 3: "))
@@ -25,36 +24,11 @@ def pedir_coordenadas() -> list:
         columna = int(input("La columna debe estar entre 0 y 6: "))
     return [fila, columna]
 
-def verificar_juego(tablero:list,x:int,y:int):
-    valor_actual = tablero[x]['piezas'][y]
-    score = 0
-    if verificar_consecutivos(tablero,x,y,valor_actual):
-            score+=10
-            scoreboard(score)
-            print("Ganaste 10 puntos")
-    else:
-        score = 0
-        scoreboard(score)
-        print("Segui participando")
-
-
-def scoreboard(score:int):
-    jugador = input('Ingresa tu nombre: ')
-    
-    with open('CandyCrush/score.csv', 'a', newline='') as archivo:
-        escritor = csv.writer(archivo)
-        escritor.writerow([jugador, score])
-    
-    
-def parametros_for(tablero,x):
-    parametros_arriba = [x -1,-1,-1]
-    parametros_abajo = [x +1,len(tablero)]
-    parametros_para_for = [parametros_arriba,parametros_abajo]
-    #print(parametros_para_for)
-    #print(f"Parametros con el * atras para ver que devuelve ",*parametros_para_for)
-    return parametros_para_for
-    
 def verificar_consecutivos(tablero:list, x:int,y:int, valor:int) ->bool:
+    """
+    Funcion para verificar si las coordenadas elegidas por el jugador contienen arriba o abajo, un mismo numero, es decir
+    si se elige una posicion x,y donde hay un 2, verificar si hay un 2 arriba y abajo de la posicion elegida.
+    """
     contador_arriba = 0
     contador_abajo = 0
     for i in range(x -1, -1, -1):
@@ -68,28 +42,46 @@ def verificar_consecutivos(tablero:list, x:int,y:int, valor:int) ->bool:
         else:
             break
     return contador_arriba + contador_abajo >=2 
-    # parametros_para_for = parametros_for(tablero,x)
-    # for parametros in parametros_para_for:
-    #     for i in range(*parametros):
-    #         if tablero[i]['piezas'][y] == valor:
-    #             if parametros == parametros_para_for[0]:
-    #                 contador_arriba+=1
-    #             else:
-    #                 contador_abajo+=1
-    #         else:
-    #             break
-    # return contador_arriba + contador_abajo >=2
-#Hacer otra funcion para poner como parametro dentro del for un string con los parametros
+    
+def verificar_juego(tablero:list,x:int,y:int):
+    """
+    Funcion que verifica si en las coordenadas elegidas por el jugador, hay 3 numeros iguales de manera vertical, el mismo ganara 10 puntos, de lo contrario se le dira que siga participando
+    """
+    valor_actual = tablero[x]['piezas'][y]
+    score = 0
+    if verificar_consecutivos(tablero,x,y,valor_actual):
+            score+=10
+            scoreboard(score)
+            print("Ganaste 10 puntos")
+    else:
+        score = 0
+        scoreboard(score)
+        print("Segui participando")
+
+def scoreboard(score:int):
+    """
+    Funcion que crea un archivo csv donde se guardan los puntajes de los jugadores 
+    """
+    jugador = input('Ingresa tu nombre: ')
+    
+    with open('CandyCrush/score.csv', 'a', newline='') as archivo:
+        escritor = csv.writer(archivo)
+        escritor.writerow([jugador, score])
 
 def mostrar_scoreboard():
+    """
+    Funcion que muestra el scoreboard
+    """
     print("Scoreboard: \n")
     with open('CandyCrush/score.csv','r') as archivo:
         lector = csv.reader(archivo)
         for contenido in lector:
             print(contenido)
         
-
 def ejecutar_juego(tablero):
+    """
+    Funcion que ejecuta el juego en un bucle hasta que el jugador decida no seguir jugando.
+    """
     seguir = 'si'
     while seguir == 'si':
         lista_tablero = generar_numeros(tablero)
@@ -106,6 +98,3 @@ def ejecutar_juego(tablero):
         if seguir == 'no':
             mostrar_scoreboard()
             
-        
-        
-
